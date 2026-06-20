@@ -70,19 +70,18 @@
 
   <style>
     :root {
-      --bg: #eef2f6;
-      --surface: #ffffff;
-      --surface-soft: #f8fafc;
-      --ink: #121722;
+      --bg: #eef3f7;
+      --ink: #111827;
       --muted: #5f6876;
-      --soft-muted: #8a93a3;
-      --line: #dde5ee;
+      --soft-muted: #8791a1;
+      --line: #dce6ee;
       --dark: #0f1420;
       --dark-2: #151d2c;
       --accent: #29c7ff;
       --accent-2: #55d9ff;
       --accent-dark: #0b5d84;
       --accent-soft: #eaf8ff;
+      --card: rgba(255, 255, 255, 0.92);
       --shadow: rgba(15, 20, 32, 0.10);
       --shadow-soft: rgba(15, 20, 32, 0.06);
     }
@@ -171,8 +170,7 @@
       margin: 0 auto;
       position: relative;
       overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(15, 20, 32, 0.98), rgba(21, 29, 44, 0.96));
+      background: linear-gradient(135deg, rgba(15, 20, 32, 0.98), rgba(21, 29, 44, 0.96));
       border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 36px;
       padding: 78px 78px;
@@ -198,7 +196,6 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       margin-bottom: 22px;
       padding: 8px 13px;
       border: 1px solid rgba(85, 217, 255, 0.36);
@@ -284,13 +281,19 @@
       gap: 18px;
     }
 
-    .panel {
-      background: rgba(255, 255, 255, 0.90);
+    .panel,
+    .wide,
+    .product-card,
+    .contact-card {
+      background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 26px;
-      padding: 30px 28px;
       box-shadow: 0 14px 40px var(--shadow-soft);
       backdrop-filter: blur(8px);
+    }
+
+    .panel {
+      border-radius: 26px;
+      padding: 30px 28px;
     }
 
     .panel h2 {
@@ -312,11 +315,8 @@
     .contact-card {
       max-width: 1020px;
       margin: 28px auto 0;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--line);
       border-radius: 30px;
       padding: 40px 44px;
-      box-shadow: 0 14px 40px var(--shadow-soft);
     }
 
     .product-card {
@@ -342,12 +342,6 @@
       font-size: 16.5px;
     }
 
-    .wide p:last-child,
-    .product-card p:last-child,
-    .contact-card p:last-child {
-      margin-bottom: 0;
-    }
-
     .product-meta {
       display: flex;
       flex-wrap: wrap;
@@ -371,7 +365,7 @@
       margin-top: 18px;
       padding: 16px 18px;
       border-radius: 18px;
-      background: var(--surface-soft);
+      background: #f8fafc;
       border: 1px solid var(--line);
       color: var(--muted);
       font-size: 14px;
@@ -470,16 +464,6 @@
 
       .button {
         width: 100%;
-      }
-
-      .panel {
-        padding: 25px 22px;
-      }
-
-      .wide,
-      .product-card,
-      .contact-card {
-        padding: 28px 22px;
       }
 
       .email-box {
