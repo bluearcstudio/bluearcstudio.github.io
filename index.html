@@ -92,6 +92,7 @@
       --focus: #7b5f2f;
       --measure: 1120px;
       --gutter: 24px;
+      --header-height: 64px;
     }
 
     * {
@@ -207,19 +208,42 @@
     }
 
     .hero {
-      min-height: 280px;
-      display: grid;
-      align-items: center;
-      padding-top: 0;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
+      width: 100%;
+      max-width: none;
+      padding: 0;
+      overflow: visible;
+      border-bottom: 1px solid rgba(215, 222, 230, 0.86);
+      background: var(--page);
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      align-items: end;
+    .hero-artwork-stage {
+      width: 100%;
+      height: calc(100vh - var(--header-height));
+      height: calc(100svh - var(--header-height));
+      height: calc(100dvh - var(--header-height));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #061423;
+    }
+
+    .hero-artwork {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+      object-fit: contain;
+      flex: 0 1 auto;
+      aspect-ratio: 1672 / 941;
+    }
+
+    .hero-intro {
+      width: calc(100% - (var(--gutter) * 2));
+      max-width: var(--measure);
+      margin: 0 auto;
+      padding: 58px 0 66px;
     }
 
     .kicker {
@@ -233,7 +257,9 @@
     }
 
     .hero .kicker {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: 13px;
     }
 
     h1,
@@ -265,6 +291,21 @@
       color: var(--text);
       font-size: clamp(17px, 1.75vw, 20px);
       line-height: 1.58;
+    }
+
+    .hero h1 {
+      max-width: 520px;
+      margin-bottom: 16px;
+      color: var(--ink);
+      font-size: clamp(30px, 3vw, 36px);
+      line-height: 1.12;
+    }
+
+    .hero .hero-lede {
+      max-width: 610px;
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.62;
     }
 
     .section-head {
@@ -574,6 +615,7 @@
       :root {
         --measure: 720px;
         --gutter: 16px;
+        --header-height: 113px;
       }
 
       .nav {
@@ -596,13 +638,11 @@
         min-height: 34px;
       }
 
-      .hero {
-        min-height: auto;
-        padding-top: 12px;
-        padding-bottom: 18px;
+      .hero-intro {
+        padding-top: 48px;
+        padding-bottom: 54px;
       }
 
-      .hero-grid,
       .section-head,
       .product-layout,
       .company-layout {
@@ -658,6 +698,7 @@
       :root {
         --measure: 320px;
         --gutter: 14px;
+        --header-height: 155px;
       }
 
       .nav-links {
@@ -673,11 +714,20 @@
         display: block;
       }
 
+      .hero h1 {
+        font-size: clamp(30px, 8vw, 34px);
+      }
+
       .hero-lede,
       .section-head p,
       .product-copy p,
       .company-copy p {
         font-size: 16.5px;
+      }
+
+      .hero-intro {
+        padding-top: 42px;
+        padding-bottom: 48px;
       }
 
       .section-head {
@@ -751,16 +801,23 @@
   </header>
 
   <main id="top">
-    <section class="hero section" aria-labelledby="hero-title">
-      <div class="hero-grid">
-        <div>
-          <p class="kicker">Quiet precision in software</p>
-          <h1 id="hero-title"><span>Blue Arc</span> <span>Studio</span></h1>
-          <p class="hero-lede">
-            We create focused digital tools with clear purpose, restrained
-            interfaces, and thoughtful detail.
-          </p>
-        </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-artwork-stage">
+        <img
+          class="hero-artwork"
+          src="assets/blue-arc-hero.webp"
+          width="1672"
+          height="941"
+          alt="Blue Arc Studio brand artwork in a quiet Japanese garden scene."
+        />
+      </div>
+      <div class="hero-intro">
+        <p class="kicker">Quiet precision in software</p>
+        <h1 id="hero-title"><span>Blue Arc</span> <span>Studio</span></h1>
+        <p class="hero-lede">
+          We create focused digital tools with clear purpose, restrained
+          interfaces, and thoughtful detail.
+        </p>
       </div>
     </section>
 
